@@ -1,6 +1,11 @@
 @description('Failover location for Cosmos DB')
 param failoverLocation string = 'eastus2'
 
+resource webapp 'Boop/dotnetapp@v1' ={
+  project: 'src/net/WebApp/WebApp.csproj'
+  deployTo: aks
+}
+
 resource storage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   kind: 'StorageV2'
   sku: {
